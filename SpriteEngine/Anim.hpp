@@ -20,16 +20,16 @@ class Anim
     virtual ~Anim();
 
     // Par copie
-    Anim(const Anim& Cpy);
+    Anim(const Anim& cpy);
 
     // Ajouter un Frame
-    void PushFrame(const Frame& NewFrame);
+    void pushFrame(const Frame& newFrame);
 
     // Nombre de Frame(s)
-    size_t Size() const;
+    size_t size() const;
 
     // Accès a la frame numéro N
-    Frame& operator [] (size_t N);
+    Frame& operator [] (size_t n);
 
     //Découpe automatiquement une ligne d'une image en Frame
     void cutSprite(ImageFrame &image, unsigned int line);
@@ -38,7 +38,7 @@ class Anim
     // Par exemple : LoadFromFile, SaveToFile etc...
 
     private:
-    std::vector< Frame > myFrame;
+    std::vector< Frame > _frame;
 
 };
 #endif

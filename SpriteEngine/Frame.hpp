@@ -1,14 +1,22 @@
-#ifndef ZIGO_FRAME
-#define ZIGO_FRAME
+#ifndef FRAME_H
+#define FRAME_H
 
 #include <SFML/Graphics.hpp>
-#include "ImageFrame.hpp"
+#include "BaseImage.hpp"
 
 // Une Frame est composée d'un pointeur sur une image, d'un SubRect et d'une couleur
 // La couleur par défaut d'une Frame est le blanc.
 class Frame
 {
     public:
+
+    // Accès public à l'image, au Rect et à la couleur
+    BaseImage* _image;
+
+    sf::Rect<int> _rect;
+
+    sf::Color _color;
+
     // Par défaut
     Frame(const sf::Color& NewColor = sf::Color::White);
 
@@ -16,21 +24,16 @@ class Frame
     Frame(const Frame& Cpy);
 
     // Image et Rect
-    Frame(ImageFrame *NewImage, const sf::Rect<int>& NewRect, const sf::Color& NewColor = sf::Color::White);
+    Frame(BaseImage *NewImage, const sf::Rect<int>& NewRect, const sf::Color& NewColor = sf::Color::White);
 
     // Image (Le Rect est au dimension de l'image)
-    Frame(ImageFrame *NewImage, const sf::Color& NewColor = sf::Color::White);
+    Frame(BaseImage *NewImage, const sf::Color& NewColor = sf::Color::White);
 
     // destructeur
-    virtual ~Frame();
+    ~Frame();
 
-    // Accès public à l'image, au Rect et à la couleur
-    ImageFrame* Image;
 
-    sf::Rect<int> Rect;
-
-    sf::Color Color;
 };
 
-#endif // ZIGO_FRAME
+#endif // FRAME_H
 

@@ -1,5 +1,5 @@
-#ifndef ZIGO_ANIMATED
-#define ZIGO_ANIMATED
+#ifndef ANIMATED_H
+#define ANIMATED_H
 
 #include "Anim.hpp"
 
@@ -20,52 +20,52 @@ class Animated : public sf::Sprite
     Animated(const Animated& Cpy);
 
     // Par défault
-    Animated(bool Play = false, bool Loop = true, float Time = 0.f);
+    Animated(bool play = false, bool loop = true, float time = 0.f);
 
     // Directement avec une Anim
-    Animated(Anim* NewAnim, bool Play = false, bool Loop = true, float Time = 0.f);
+    Animated(Anim* newAnim, bool play = false, bool loop = true, float time = 0.f);
 
     // Destructeur
     virtual ~Animated();
 
     // Comme 'SetImage', sauf qu'on lui fournit l'Anim
-    void SetAnim(Anim* NewAnim);
+    void setAnim(Anim* newAnim);
 
     // Retourne un pointeur sur l'anim
-    Anim* GetAnim();
+    Anim* getAnim();
 
     // Passer à l'image numéro X
-    void SetFrame(int Frame);
+    void setFrame(int frame);
 
     // Retourne la Frame courante
-    int GetCurrentFrame();
+    int getCurrentFrame();
 
     // Fixer le temps entre chaques Frame
-    void SetFrameTime(float Time);
+    void setFrameTime(float time);
 
     // Retourne le temps entre chaques Frame
-    float GetFrameTime();
+    float getFrameTime();
 
     // Jouer en boucle ?
-    void SetLoop(bool Loop);
+    void setLoop(bool loop);
 
     // Jouer en boucle ?
-    bool IsLoop();
+    bool isLoop();
 
     // Met en pause la lecture
-    void Pause();
+    void pause();
 
     // Relance la lecture
-    void Play(Anim* sprite);
+    void play(Anim* sprite);
 
     // Met en pause la lecture, et 'rembobine'
-    void Stop();
+    void stop();
 
     // Est en pause ?
-    bool IsPaused();
+    bool isPaused();
 
     // Est stoppé ?
-    bool IsStoped();
+    bool isStoped();
 
     float getTime();
 
@@ -76,13 +76,13 @@ class Animated : public sf::Sprite
     void anim(float ElapsedTime);
 
     private:
-    float myTime;
-    float myElapsedTime;
-    bool Paused;
-    bool myLoop;
-    Anim* myAnim;
-    int myCurrentFrame;
+    float _time;
+    float _elapsedTime;
+    bool _paused;
+    bool _loop;
+    Anim* _anim;
+    int _currentFrame;
 };
 
-#endif
+#endif //ANIMATED_H
 

@@ -1,36 +1,36 @@
 #include "Frame.hpp"
 
 // Par défaut
-Frame::Frame(const sf::Color& NewColor)
+Frame::Frame(const sf::Color& newColor)
 {
-    Image = NULL;
-    Color = NewColor;
+    _image = NULL;
+    _color = NewColor;
 }
 
 // Par copie
-Frame::Frame(const Frame& Cpy)
+Frame::Frame(const Frame& cpy)
 {
-    Image = Cpy.Image;
-    Rect = Cpy.Rect;
-    Color = Cpy.Color;
+    _image = cpy.Image;
+    _rect = cpy.Rect;
+    _color = cpy.Color;
 }
 
 // Image et Rect
-Frame::Frame(ImageFrame* NewImage, const sf::Rect<int>& NewRect, const sf::Color& NewColor)
+Frame::Frame(BaseImage* newImage, const sf::Rect<int>& newRect, const sf::Color& newColor)
 {
-    Image = NewImage;
-    Rect = NewRect;
-    Color = NewColor;
+    _image = newImage;
+    _rect = newRect;
+    _color = newColor;
 }
 
 // Image (Le Rect est au dimension de l'image)
-Frame::Frame(ImageFrame* NewImage, const sf::Color& NewColor)
+Frame::Frame(BaseImage* newImage, const sf::Color& newColor)
 {
-    Image = NewImage;
-    if (Image != NULL)
-        Rect = sf::Rect<int>(0, 0, Image->GetWidth(), Image->GetHeight());
+    _image = newImage;
+    if (image != NULL)
+        _rect = sf::Rect<int>(0, 0, image->GetWidth(), image->GetHeight());
 
-    Color = NewColor;
+    _color = newColor;
 }
 
 // destructeur
