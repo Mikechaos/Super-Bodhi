@@ -11,11 +11,11 @@ class Frame
     public:
 
     // Accès public à l'image, au Rect et à la couleur
-    BaseImage* _image;
+    BaseImage* image;
 
-    sf::Rect<int> _rect;
+    sf::Rect<int> rect;
 
-    sf::Color _color;
+    sf::Color color;
 
     // Par défaut
     Frame(const sf::Color& NewColor = sf::Color::White);

@@ -50,7 +50,7 @@ void Animated::setAnim(Anim* newAnim)
 }
 
 // Retourne un pointeur sur l'anim
-Anim* Animated::setAnim()
+Anim* Animated::getAnim()
 {
     return _anim;
 }
@@ -60,16 +60,16 @@ void Animated::setFrame(int frame)
 {
     if ( _anim != NULL)
     {
-        if (_anim->Size() > 0)
+        if (_anim->size() > 0)
         {
             if ((*_anim)[frame].image != NULL)
-                setImage(*((*_anim)[frame].image));
+                SetImage(*((*_anim)[frame].image));
 
-            setSubRect((*_anim)[frame].rect);
+            SetSubRect((*_anim)[frame].rect);
 
-            setColor((*_anim)[frame].color);
+            SetColor((*_anim)[frame].color);
 
-            _currentframe = frame;
+            _currentFrame = frame;
         }
     }
 }
@@ -107,13 +107,13 @@ bool Animated::isLoop()
 // Met en pause la lecture
 void Animated::pause()
 {
-    Paused = true;
+    _paused = true;
 }
 
 // Relance la lecture
 void Animated::play(Anim *sprite)
 {
-    Paused = false;
+    _paused = false;
     if (_anim != sprite)
     _anim = sprite;
 }
@@ -122,40 +122,40 @@ void Animated::play(Anim *sprite)
 void Animated::stop()
 {
     setFrame(0);
-    myElapsedTime = _time;
-    Paused = true;
+    _elapsedTime = _time;
+    _paused = true;
 }
 
 // Est En pause ?
 bool Animated::isPaused()
 {
-    return Paused;
+    return _paused;
 }
 
 // Est Stoppé ?
 bool Animated::isStoped()
 {
-    return (Paused && (_currentFrame == 0) && (myElapsedTime == _time));
+    return (_paused && (_currentFrame == 0) && (_elapsedTime == _time));
 }
 
 // Fonction à appeler à chaque tours de boucle, prend le temps
 // écoulé depuis le dernier appel à la fonction en paramètre
-void Animated::anim(float ElapsedTime)
+void Animated::anim(float elapsedTime)
 {
     // Si il n'est pas en pause et que l'animation est valide
-    if (!Paused && _anim != NULL)
+    if (!_paused && _anim != NULL)
     {
         // on retranche le temps écoulé a notre compteur
-        myElapsedTime -= ElapsedTime;
+        _elapsedTime -= elapsedTime;
 
         // Si Le temps entre chaque frame est atteint
-        if (myElapsedTime <= 0.f)
+        if (_elapsedTime <= 0.f)
         {
             // On réinitialise notre compteur
-            myElapsedTime = _time;
+            _elapsedTime = _time;
 
             // On passe a la frame suivante
-            if (_currentFrame + 1 < _anim->Size())
+            if (_currentFrame + 1 < _anim->size())
                 _currentFrame++;
             else
             {

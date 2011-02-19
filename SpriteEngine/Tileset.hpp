@@ -3,8 +3,8 @@
 
 #include <map>
 
-#include "BaseImage.h"
-#include "Frame.h"
+#include "BaseImage.hpp"
+#include "Frame.hpp"
 
 class Tileset
 {
@@ -12,7 +12,8 @@ class Tileset
     std::map<char, Frame> _tileMap;
 
 public:
-    Tileset(std::string tileParam);
+    Tileset(std::string& tileParam);
+    Tileset(const Tileset& cpy);
 
 };
 

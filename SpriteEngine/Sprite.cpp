@@ -2,13 +2,13 @@
 
 using namespace std;
 
-Sprite::Sprite(string spriteParam)
+Sprite::Sprite(string spriteParam) : _spriteImg(spriteParam)
 {
     //A coder
     findCenter();
 }
 
-Sprite::findCenter()
+void Sprite::findCenter()
 {
-    _charAnim.SetCenter(_spriteImage.getFrameWidth()/2, _spriteImage.getFrameHeight()/2)
+    _charAnim.SetCenter(_spriteImg.getFrameWidth()/2, _spriteImg.getFrameHeight()/2);
 }

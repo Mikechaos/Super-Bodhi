@@ -3,19 +3,20 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include <fstream>
+#include <string>
 
-#include "Tileset.h"
-#include "Sprite.h"
+#include "Tileset.hpp"
+#include "Sprite.hpp"
 
 class GraphicEngine
 {
-    Tileset _tileSet
-    std::vector<Sprite> _sprites
-    sf::RenderWindow _window
+
+    Tileset* _tileset;
+    std::vector<Sprite> _sprites;
+    sf::RenderWindow _window;
 
     public :
-    GraphicEngine(fstream levelRes);
+    GraphicEngine(const std::string& lvlRes);
 
 };
 

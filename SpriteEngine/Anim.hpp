@@ -1,10 +1,10 @@
-#ifndef ZIGO_ANIM
-#define ZIGO_ANIM
+#ifndef ANIM_H
+#define ANIM_H
 
 #include <vector>
 
 #include "Frame.hpp"
-#include "ImageFrame.hpp"
+#include "BaseImage.hpp"
 
 // La classe animation n'est qu'un 'vector' de Frame
 class Anim
@@ -14,7 +14,7 @@ class Anim
     // par défaut
     Anim();
 
-    Anim(ImageFrame &image, unsigned int line);
+    Anim(BaseImage &image, unsigned int line);
 
     // destructeur
     virtual ~Anim();
@@ -32,7 +32,7 @@ class Anim
     Frame& operator [] (size_t n);
 
     //Découpe automatiquement une ligne d'une image en Frame
-    void cutSprite(ImageFrame &image, unsigned int line);
+    void cutSprite(BaseImage &image, unsigned int line);
 
     // Plus tard, nous pourrons ajouter différentes fonctions liées au fait qu'une 'Anim' est une ressource
     // Par exemple : LoadFromFile, SaveToFile etc...
