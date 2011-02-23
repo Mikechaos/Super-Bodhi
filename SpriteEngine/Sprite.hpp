@@ -6,17 +6,22 @@
 #include "Anim.hpp"
 #include "Position.hpp"
 
+/*A coder :
+    La fonction pour setter l'animation actuelle (_charAnim)
+*/
+
 class Sprite
 {
     BaseImage _spriteImg;
-    Animated _charAnim;
-    std::vector<Anim> _anim;
+    Animated* _charAnim;
+    std::vector<Anim*> _anim;
 
 public :
 
     Sprite(std::string spriteParam);
+    ~Sprite();
 
-    Animated getCharAnim() const {return _charAnim;}
+    Animated getCharAnim() const {return *_charAnim;}
 
 private :
 

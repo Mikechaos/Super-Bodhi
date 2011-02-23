@@ -23,7 +23,7 @@ BaseImage::BaseImage(const BaseImage& cpy) : sf::Image()
     _transparency = cpy._transparency;
 }
 
-
+/*Grossier, brouillon temporaire*/
 BaseImage::BaseImage(string& lvlres) : sf::Image()
 {
     int i = 0;
