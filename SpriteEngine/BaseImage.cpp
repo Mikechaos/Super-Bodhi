@@ -52,7 +52,13 @@ BaseImage::BaseImage(string& lvlres) : sf::Image()
     _transparency = static_cast<TransparencyCorner>(transparency);
     if (transparency)
 	manageTransparency(_transparency);
+	setFrameDimension();
+}
 
+void BaseImage::setFrameDimension()
+{
+    _frameHeight = GetHeight()/_lineCount;
+    _frameWidth = GetWidth()/_frameCount;
 }
 
 void BaseImage::manageTransparency(TransparencyCorner transparency)

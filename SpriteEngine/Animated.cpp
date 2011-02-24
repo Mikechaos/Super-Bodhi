@@ -1,8 +1,8 @@
 #include "Animated.hpp"
 
 // Par Copie
-Animated::Animated(const Animated& cpy) :
-sf::Sprite(cpy)
+Animated::Animated(const Animated& cpy) : sf::Sprite()
+
 {
     _currentFrame = cpy._currentFrame;
     _time = cpy._time;
@@ -13,7 +13,7 @@ sf::Sprite(cpy)
 }
 
 // Par défault
-Animated::Animated(bool play, bool loop, float time)
+Animated::Animated(bool play, bool loop, float time) : sf::Sprite()
 {
     _anim = NULL;
     _currentFrame = 0;
@@ -24,7 +24,7 @@ Animated::Animated(bool play, bool loop, float time)
 }
 
 // Directement avec une Anim
-Animated::Animated(Anim* newAnim, bool play, bool loop, float time)
+Animated::Animated(Anim* newAnim, bool play, bool loop, float time) : sf::Sprite()
 {
     _time = time;
     _elapsedTime = time;

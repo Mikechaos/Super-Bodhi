@@ -21,7 +21,8 @@ public :
     Sprite(std::string spriteParam);
     ~Sprite();
 
-    Animated getCharAnim() const {return *_charAnim;}
+    Animated* getCharAnim() {return _charAnim;}
+    void setPosition(Position pos);
 
 private :
 

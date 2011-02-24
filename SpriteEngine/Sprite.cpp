@@ -15,6 +15,7 @@ Sprite::Sprite(string spriteParam) : _spriteImg(spriteParam)
     }
     _charAnim = new Animated(_anim[0]);
     findCenter();
+    setPosition(Position(50, 50));
 }
 
 Sprite::~Sprite()
@@ -23,6 +24,12 @@ Sprite::~Sprite()
     {
         delete _anim[i];
     }
+    delete _charAnim;
+}
+
+void Sprite::setPosition(Position pos)
+{
+    _charAnim->SetPosition(pos.x, pos.y);
 }
 
 void Sprite::findCenter()

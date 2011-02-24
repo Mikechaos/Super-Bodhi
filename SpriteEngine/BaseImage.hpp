@@ -21,6 +21,7 @@ class BaseImage : public sf::Image
     BaseImage(const BaseImage& cpy);
     BaseImage(std::string& lvlres);
 
+    void setFrameDimension();
     unsigned int getLineCount();
     unsigned int getFrameCount();
     unsigned int getFrameHeight();

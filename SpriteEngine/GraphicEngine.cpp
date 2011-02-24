@@ -26,10 +26,10 @@ GraphicEngine::GraphicEngine(const string& resFile, const string& mapFile)
     _tileset = new Tileset(lineRes);
     while(getline(res, lineRes))
     {
-	_sprites.push_back(Sprite(lineRes));
+        _sprites.push_back(Sprite(lineRes));
     }
-    _window->Draw(_sprites[0].getCharAnim());
-    _window->Display();
+    res.close();
+    map.close();
 }
 
 GraphicEngine::~GraphicEngine()
@@ -41,7 +41,8 @@ GraphicEngine::~GraphicEngine()
 
 void GraphicEngine::updateGraphics()
 {
-        _window->Clear();
-        _window->Draw(_sprites[0].getCharAnim());
-        _window->Display();
+    Animated* anim = _sprites[0].getCharAnim();
+    _window->Clear();
+    _window->Draw(*anim);
+    _window->Display();
 }
