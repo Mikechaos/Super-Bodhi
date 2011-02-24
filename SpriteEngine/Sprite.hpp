@@ -13,7 +13,7 @@
 class Sprite
 {
     BaseImage _spriteImg;
-    Animated* _charAnim;
+    Animated _charAnim;
     std::vector<Anim*> _anim;
 
 public :
@@ -21,8 +21,9 @@ public :
     Sprite(std::string spriteParam);
     ~Sprite();
 
-    Animated* getCharAnim() {return _charAnim;}
-    void setPosition(Position pos);
+    void drawSprite(sf::RenderWindow* window);
+    Animated getCharAnim() {return _charAnim;}
+    void setPosition(const sf::Vector2f& pos);
 
 private :
 

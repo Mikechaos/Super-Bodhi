@@ -41,8 +41,7 @@ GraphicEngine::~GraphicEngine()
 
 void GraphicEngine::updateGraphics()
 {
-    Animated* anim = _sprites[0].getCharAnim();
     _window->Clear();
-    _window->Draw(*anim);
+    _sprites[0].drawSprite(_window);
     _window->Display();
 }
